@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5295537e26.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="images/S-removebg-preview.png">
+    <title>Hanjala Shihab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgba(3, 3, 16, 0.964);
+            overflow: hidden;
+        }
+
+        .cursor {
+            position: fixed;
+            width: 21px;
+            height: 21px;
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 50%;
+            transition-duration: 200ms;
+            transition-timing-function: ease-out;
+            transform: scale(1);
+            z-index: 0;
+        }
+
+        nav {
+            width: 800px;
+            margin: 0 auto;
+            height: 120px;
+            background-color: rgb(37, 25, 72);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            z-index: 1;
+            margin-top: 60px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+
+        nav ul li a {
+            color: white;
+            display: block;
+            margin: 0px 45px;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 2.2px;
+            font-size: 20px;
+        }
+
+        .span {
+            font-size: 19px;
+        }
+
+        .span:hover {
+            font-size: 30px;
+            color: red;
+        }
+
+        nav ul li a:hover {
+            transform: scale(1.3);
+            cursor: none;
+        }
+
+        .cursor.hovered {
+            transform: scale(2.8);
+            border: 2px solid white;
+            background-color: black;
+        }
+
+        .container {
+            position: relative;
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        /* About */
+        .about {
+            color: white;
+            width: 800px;
+            background-color: rgba(8, 9, 56, 0.949);
+            margin: 0 auto;
+            overflow: auto;
+            overflow: hidden;
+            height: 0px;
+            transition: 0.7s ease;
+            z-index: 2;
+            position: absolute;
+        }
+
+        .about .text {
+            padding: 20px 0px 20px 20px;
+        }
+
+        .about h2 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .about .inner-text {
+            text-align: justify;
+            width: 550px;
+            margin-top: 15px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 19px;
+        }
+
+        .img {
+            float: right;
+            margin-top: -20px;
+            margin-right: 20px;
+        }
+
+        .img img {
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+        }
+
+        .active {
+            text-decoration: 2.5px rgb(255, 0, 0) underline;
+            text-underline-offset: 5px;
+        }
+
+        .education {
+            color: white;
+            width: 800px;
+            background-color: rgba(8, 9, 56, 0.949);
+            margin: 0 auto;
+            overflow: auto;
+            overflow: hidden;
+            height: 0px;
+            transition: 0.7s ease;
+            z-index: 2;
+            position: absolute;
+        }
+
+        .education .text {
+            padding: 20px 20px 20px 20px;
+        }
+
+        .education .text h2 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .education .inner-text {
+            text-align: justify;
+            width: 100%;
+            margin-top: 15px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 19px;
+        }
+
+        .skills {
+            color: white;
+            width: 800px;
+            background-color: rgba(8, 9, 56, 0.949);
+            margin: 0 auto;
+            overflow: auto;
+            overflow: hidden;
+            height: 0px;
+            transition: 0.7s ease;
+            z-index: 2;
+            position: absolute;
+        }
+
+        .skills h2 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .skills .text {
+            padding: 20px 20px 20px 20px;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .diffColor {
+            position: absolute;
+            width: 0px;
+            opacity: 0;
+            height: 60px;
+            right: 1240px;
+            top: 88px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            transition: 3s ease;
+        }
+
+        .green,
+        .purple,
+        .yellow,
+        .white {
+            width: 40px;
+            height: 40px;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+
+        .green {
+            background-color: rgb(11, 236, 11);
+        }
+
+        .purple {
+            background-color: #d500ff;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .white {
+            background-color: white;
+            border: 2px solid rgb(255, 248, 43) !important;
+        }
+
+        .colors {
+            color: white;
+            font-size: 30px;
+            position: absolute;
+            top: 102px;
+            left: 300px;
+            z-index: 1;
+        }
+
+        .colors .fa-gear {
+            cursor: pointer;
+            transition-duration: 3s;
+            color: wheat;
+        }
+
+        .container p::selection {
+            color: rgb(0, 0, 0) !important;
+            background-color: bisque;
+        }
+
+        .contacts {
+            color: white;
+            width: 800px;
+            background-color: rgba(8, 9, 56, 0.949);
+            margin: 0 auto;
+            overflow: auto;
+            overflow: hidden;
+            height: 0px;
+            transition: 0.7s ease;
+            z-index: 1;
+            position: absolute;
+        }
+
+        .contacts .text {
+            padding: 20px 20px 20px 20px;
+        }
+
+        .contacts .text h2 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-decoration: 3px underline;
+            text-underline-offset: 7px;
+        }
+
+        .contacts .text .inner-text p {
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .contacts .text .inner-text p i {
+            font-size: 26px;
+            margin-right: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor"></div>
+    <div class="overlay"></div>
+    <div class="header">
+        <nav class="navbar">
+            <ul>
+                <li><a href="#"><span class="span">A</span><span class="span">B</span><span class="span">O</span><span
+                            class="span">U</span><span class="span">T</span></a></li>
+                <li><a href="#"><span class="span">E</span><span class="span">D</span><span class="span">U</span><span
+                            class="span">C</span><span class="span">A</span><span class="span">T</span><span
+                            class="span">I</span><span class="span">O</span><span class="span">N</span></a></li>
+                <li><a href="#"><span class="span">S</span><span class="span">K</span><span class="span">I</span><span
+                            class="span">L</span><span class="span">L</span><span class="span">S</span></a></li>
+                <li><a href="#"><span class="span">C</span><span class="span">O</span><span class="span">N</span><span
+                            class="span">T</span><span class="span">A</span><span class="span">C</span><span
+                            class="span">T</span><span class="span">S</span></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="about section">
+            <div class="text">
+                <h2><i class="fa-regular fa-snowflake"
+                        style="margin-right: 10px; font-size: 26px; color: rgb(234, 255, 0); vertical-align: middle;"></i>ABOUT</h2>
+                <div class="img">
+                    <img src="images/shihabb.jpg" alt="profile picture">
+                </div>
+                <div class="inner-text">
+                    <p class="after-color">I am Hanjala Muhammad Shihab.</p>
+                    <p class="after-color">I am a <span class="typed">passionate web developer.</span></p>
+                    <p style="margin-top: 10px;" class="after-color">I am someone who finds joy
+                        in exploring diverse cultures
+                        and cuisines, feeling rejuvenated
+                        amidst nature's embrace. Creativity
+                        is my outlet, whether through painting
+                        or writing, and music holds the key to uplifting my spirits. Maintaining a healthy lifestyle
+                        through
+                        physical activity is vital to me, as is cherishing quality time with loved ones. Immersing
+                        myself in
+                        books and traveling to new destinations fuel my curiosity and sense of adventure. The arts
+                        captivate
+                        me, be it through gallery visits or attending live performances.
+                        Ultimately, forging genuine connections with others based on trust and understanding is at the
+                        core
+                        of who I am.</p>
+
+                    <p style="margin-top: 10px;" class="after-color">
+                        I am a fun loving and giving character and whenever I get the oportunity I try to travel and
+                        discover new things.Among sports,I am so much fond of cricket and football.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="education section">
+            <div class="text">
+                <h2><i class="fa-solid fa-award"
+                        style="margin-right: 10px; font-size: 30px; color: rgb(234, 255, 0); vertical-align: middle;"></i>EDUCATION</h2>
+                <div class="inner-text">
+                    <h3 style="margin-top: 20px;">2019:</h3>
+                    <p style="margin-top: 5px;" class="after-color">I completed S.S.C(Secondary School Certificate) in
+                        this year from Ibn
+                        Taimiya School and College.
+                    </p>
+
+                    <h3 style="margin-top: 20px;">2019-2021:</h3>
+                    <p style="margin-top: 5px;" class="after-color">I completed H.S.C(Higher Secondary School
+                        Certificate) from Sonar Bangla
+                        College,Which on of the
+                        most
+                        reputed college in Cumilla District,in the year of 2021.</p>
+
+                    <h3 style="margin-top: 20px;">2023-Present:</h3>
+                    <p style="margin-top: 5px;" class="after-color">Currently,I am studying in the department of
+                        Software Engineering at
+                        Daffodil International
+                        University.</p>
+                    <p class="after-color">And hoping myself to see at abroad like Canada or America for furthure
+                        education(M.Sc.)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills section">
+            <div class="text">
+                <h2><img src="images/muscle.png" alt="" width="30px" height="auto" style="margin-right: 10px;">SKILLS
+                </h2>
+                <div class="inner-text">
+                    <h3 style="margin-top: 20px;">Programming Languages:</h3>
+                    <p style="margin-top: 5px;">C, C++, Java, Python, JavaScript, PHP</p>
+
+                    <h3 style="margin-top: 20px;">Web Technologies:</h3>
+                    <p style="margin-top: 5px;">HTML, CSS, Bootstrap, JavaScript, jQuery, React, Node.js, Express.js,
+                        MongoDB</p>
+
+                    <h3 style="margin-top: 20px;">Database:</h3>
+                    <p style="margin-top: 5px;">MySQL, MongoDB</p>
+
+                    <h3 style="margin-top: 20px;">Tools:</h3>
+                    <p style="margin-top: 5px;">Git, GitHub, VS Code, NetBeans, Eclipse, Android Studio</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contacts section">
+            <div class="text">
+                <h2><img src="images/contact (1).png" alt="" width="30px" height="auto" style="margin-right: 15px; vertical-align: middle;">Find
+                    me on:</h2>
+                <div class="inner-text" style="margin-left: 44px ;">
+                    <h3 style="margin-bottom: 15px; margin-top: 40px;">CONTACTS</h3>
+                    <p><i class="fa-brands fa-whatsapp" style="vertical-align: middle;"></i>++8801306249460</p>
+                    <p style="margin-top: 10px;"><i class="fa-regular fa-envelope" style="vertical-align: middle;"></i>shihab2305341402@diu.edu.bd</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="diffColor">
+        <div class="white"></div>
+        <div class="green"></div>
+        <div class="yellow"></div>
+        <div class="purple"></div>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <div class="colors">
+        <i class="fa-solid fa-gear" onclick="rotateThat()" ondblclick="rotateBack()"></i>
+    </div>
+
+    <script>
+        const cursor = document.querySelector(".cursor");
+        const navItems = document.querySelectorAll("nav ul li a");
+
+        navItems.forEach(item => {
+            item.addEventListener("mouseover", () => {
+                cursor.classList.add("hovered");
+            });
+
+            item.addEventListener("mouseout", () => {
+                cursor.classList.remove("hovered");
+            });
+        });
+
+        document.addEventListener("mousemove", e => {
+            cursor.style.left = (e.pageX - 10) + "px";
+            cursor.style.top = (e.pageY - 10) + "px";
+        });
+    </script>
+
+    <script>
+        //For typed js
+        const typedTextSpan = document.querySelector(".typed");
+        const textArray = ["passionate web developer.", "creative thinker.", "problem solver."];
+        const typingDelay = 200;
+        const erasingDelay = 100;
+        const newTextDelay = 2000;
+        let textArrayIndex = 0;
+        let charIndex = 0;
+    </script>
+
+    <script>
+        //For about section
+        const about = document.querySelector(".about");
+        const education = document.querySelector(".education");
+        const skills = document.querySelector(".skills");
+        const contacts = document.querySelector(".contacts");
+        const links = document.querySelectorAll("nav ul li a");
+
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                // Remove the active class from all links
+                links.forEach(link => {
+                    link.classList.remove("active");
+                });
+
+                // Add the active class to the clicked link
+                link.classList.add("active");
+
+                // Toggle the visibility of sections based on the clicked link
+                if (link.textContent.includes("ABOUT")) {
+                    toggleSection(about);
+                    hideSection(education);
+                    hideSection(skills);
+                    hideSection(contacts);
+                }
+                else if (link.textContent.includes("EDUCATION")) {
+                    toggleSection(education);
+                    hideSection(about);
+                    hideSection(skills);
+                    hideSection(contacts);
+                }
+                else if (link.textContent.includes("SKILLS")) {
+                    toggleSection(skills);
+                    hideSection(about);
+                    hideSection(education);
+                    hideSection(contacts);
+                }
+                else if (link.textContent.includes("CONTACTS")) {
+                    toggleSection(contacts);
+                    hideSection(about);
+                    hideSection(education);
+                    hideSection(skills);
+                }
+            });
+        });
+
+        // Function to toggle section visibility
+        function toggleSection(section) {
+            if (section.style.height === "0px" || section.style.height === "") {
+                section.style.height = "450px";
+            } else {
+                section.style.height = "0px";
+            }
+        }
+
+        // Function to hide section
+        function hideSection(section) {
+            section.style.height = "0px";
+        }
+    </script>
+
+    <script>
+        // Get the canvas element
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        // Set canvas dimensions to window size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Create an array to store the bubbles
+        var bubbles = [];
+
+        // Function to generate random number within a range
+        function randomRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        // Array of colors for the bubbles
+        var colors = ["#ff7f50", "#6495ed", "#ff69b4", "#1e90ff", "#32cd32", "#ff4500", "#ff1493", "#008b8b", "#8a2be2", "#7fff00"];
+
+        // Define Bubble object
+        function Bubble() {
+            this.x = randomRange(0, canvas.width);
+            this.y = canvas.height + 50; // Start off-screen
+            this.radius = randomRange(5, 15); // Adjusted size
+            this.speed = randomRange(1, 4);
+            this.color = colors[Math.floor(Math.random() * colors.length)]; // Random color
+
+            this.update = function () {
+                this.y -= this.speed;
+                if (this.y < -50) { // Reset if off-screen
+                    this.y = canvas.height + 50;
+                    this.x = randomRange(0, canvas.width);
+                }
+            };
+
+            this.draw = function () {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.closePath();
+            };
+        }
+
+        // Create bubbles and add to array
+        for (var i = 0; i < 50; i++) {
+            bubbles.push(new Bubble());
+        }
+
+        // Animation loop
+        function animate() {
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Update and draw each bubble
+            bubbles.forEach(function (bubble) {
+                bubble.update();
+                bubble.draw();
+            });
+
+            // Request next frame
+            requestAnimationFrame(animate);
+        }
+
+        // Start animation
+        animate();
+    </script>
+
+    <script>
+        const green = document.querySelector(".green");
+        const yellow = document.querySelector(".yellow");
+        const purple = document.querySelector(".purple");
+        const white = document.querySelector(".white");
+
+        const afterColor = document.querySelectorAll(".after-color");
+
+        green.addEventListener("click", () => {
+            afterColor.forEach(color => {
+                color.style.color = "rgb(11, 236, 11)";
+            });
+        });
+
+        yellow.addEventListener("click", () => {
+            afterColor.forEach(color => {
+                color.style.color = "yellow";
+            });
+        });
+
+        purple.addEventListener("click", () => {
+            afterColor.forEach(color => {
+                color.style.color = "#d500ff";
+            });
+        });
+
+        white.addEventListener("click", () => {
+            afterColor.forEach(color => {
+                color.style.color = "white";
+            });
+        });
+    </script>
+
+    <script>
+        const colorIcon = document.querySelector(".fa-gear");
+        const diffColor = document.querySelector(".diffColor")
+
+        function rotateThat() {
+            colorIcon.style.transform += "rotate(360deg)";
+            diffColor.style.width = "200px";
+            diffColor.style.opacity = "1";
+        }
+
+        function rotateBack() {
+            colorIcon.style.transform += "rotate(-360deg)";
+            diffColor.style.width = "0px";
+            diffColor.style.opacity = "0";
+        }
+    </script>
+</body>
+
+</html>
