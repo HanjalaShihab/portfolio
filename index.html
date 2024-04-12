@@ -96,7 +96,7 @@
             overflow: auto;
             overflow: hidden;
             height: 0px;
-            transition: 0.7s ease;
+            transition: 0.8s ease;
             z-index: 2;
             position: absolute;
         }
@@ -142,7 +142,7 @@
             overflow: auto;
             overflow: hidden;
             height: 0px;
-            transition: 0.7s ease;
+            transition: 0.8s ease;
             z-index: 2;
             position: absolute;
         }
@@ -170,8 +170,8 @@
             margin: 0 auto;
             overflow: auto;
             overflow: hidden;
-            height: 0px;
-            transition: 0.7s ease;
+            height: 450px;
+            transition: 0.8s ease;
             z-index: 2;
             position: absolute;
         }
@@ -182,6 +182,87 @@
 
         .skills .text {
             padding: 20px 20px 20px 20px;
+        }
+
+        .skills .line {
+            position: absolute;
+            width: 300px;
+            top: 240px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 1px;
+            background-color: rgb(129, 129, 129);
+        }
+
+        .skills .skill-icons .icon {
+            display: flex;
+            position: absolute;
+        }
+
+        .skills .skill-icons .icon:nth-child(1) {
+            top: 280px;
+            left: 43%;
+            transform: translate(-50%, -50%);
+        }
+
+        .skills .skill-icons .icon:nth-child(2) {
+            top: 335px;
+            left: 38%;
+            transform: translate(-50%, -50%);
+        }
+
+        .skills .skill-icons .icon:nth-child(3) {
+            top: 392px;
+            left: 38%;
+            transform: translate(-50%, -50%);
+        }
+
+        .skills .skill-icons .icon:nth-child(4) {
+            top: 276px;
+            left: 60%;
+            transform: translate(-50%, -50%);
+        }
+
+        .skills .skill-icons .icon:nth-child(5) {
+            top: 333px;
+            left: 63%;
+            transform: translate(-50%, -50%);
+        }
+
+        .skills .skill-icons .icon:nth-child(6) {
+            top: 390px;
+            left: 64%;
+            transform: translate(-50%, -50%);
+        }
+
+        .skills .skill-icons .icon i {
+            font-size: 30px;
+            margin-right: 20px;
+            color: white;
+            vertical-align: middle;
+            animation: bigsm 1.6s linear infinite;
+        }
+
+        @keyframes bigsm {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.3);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        .skills .skill-icons .icon p {
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            color: white;
+            vertical-align: middle;
         }
 
         canvas {
@@ -201,6 +282,7 @@
             justify-content: space-evenly;
             align-items: center;
             transition: 3s ease;
+            z-index: 9999;
         }
 
         .green,
@@ -236,13 +318,14 @@
             position: absolute;
             top: 102px;
             left: 300px;
-            z-index: 1;
+            z-index: 9999;
         }
 
         .colors .fa-gear {
             cursor: pointer;
             transition-duration: 3s;
             color: wheat;
+            z-index: 9999;
         }
 
         .container p::selection {
@@ -258,7 +341,7 @@
             overflow: auto;
             overflow: hidden;
             height: 0px;
-            transition: 0.7s ease;
+            transition: 0.8s ease;
             z-index: 1;
             position: absolute;
         }
@@ -282,11 +365,25 @@
             font-size: 26px;
             margin-right: 17px;
         }
+
+        .crs-2 {
+            position: fixed;
+            width: 21px;
+            height: 21px;
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 50%;
+            transition-duration: 200ms;
+            transition-timing-function: ease-out;
+            transform: scale(1);
+            z-index: 9;
+            display: none;
+        }
     </style>
 </head>
 
 <body>
     <div class="cursor"></div>
+
     <div class="overlay"></div>
     <div class="header">
         <nav class="navbar">
@@ -306,10 +403,13 @@
     </div>
 
     <div class="container">
+       <div class="crs-2"></div>
+
         <div class="about section">
             <div class="text">
                 <h2><i class="fa-regular fa-snowflake"
-                        style="margin-right: 10px; font-size: 26px; color: rgb(234, 255, 0); vertical-align: middle;"></i>ABOUT</h2>
+                        style="margin-right: 10px; font-size: 26px; color: rgb(234, 255, 0); vertical-align: middle;"></i>ABOUT
+                </h2>
                 <div class="img">
                     <img src="images/shihabb.jpg" alt="profile picture">
                 </div>
@@ -343,7 +443,8 @@
         <div class="education section">
             <div class="text">
                 <h2><i class="fa-solid fa-award"
-                        style="margin-right: 10px; font-size: 30px; color: rgb(234, 255, 0); vertical-align: middle;"></i>EDUCATION</h2>
+                        style="margin-right: 10px; font-size: 30px; color: rgb(234, 255, 0); vertical-align: middle;"></i>EDUCATION
+                </h2>
                 <div class="inner-text">
                     <h3 style="margin-top: 20px;">2019:</h3>
                     <p style="margin-top: 5px;" class="after-color">I completed S.S.C(Secondary School Certificate) in
@@ -374,23 +475,73 @@
                 <h2><img src="images/muscle.png" alt="" width="30px" height="auto" style="margin-right: 10px;">SKILLS
                 </h2>
                 <div class="inner-text" style="margin-top: 20px; margin-left: 38px;">
-                    <p><span style="color: rgb(69, 69, 255); font-size: 20px;">class </span><span style="color: yellow; font-size: 22px; margin-left: 8px;"> Hanjala </span><span style="color: white;font-size: 22px;"> {</span></p>
-                        <p style="margin-top: 10px;"><span style="color: yellow; font-size: 18px; margin: 0px 1px 0px 38px;">skills</span><span style="font-size: 18px; margin-right:8px;"> ( )</span><span style="color: white;font-size: 22px;">{</span></p>
-                            <p style="margin-top: 10px; margin-left: 37px;"><span style="color: rgb(98, 84, 255); font-size: 18px; margin-right: 8px; font-family: Verdana, Geneva, Tahoma, sans-serif;">return</span><span style="font-size: 22px;">[</span><span style="color: rgb(3, 249, 3); font-size: 19px;"> ' HTML ' , ' CSS ' ,  ' JavaScript ' , ' Bootstrap ' ,  ' Java ' ,  ' C ' </span><span style="font-size: 22px;">]</span></p>
-                            <p style="font-size: 22px; margin-left: 28px; margin-top: 10px;">}</p>
-                        <p style="font-size: 22px; margin-left: 2px; margin-top: 10px;">}</p>
+                    <p><span style="color: rgb(227, 66, 255); font-size: 21px;">class </span><span
+                            style="color: yellow; font-size: 22px; margin-left: 8px;"> Hanjala </span><span
+                            style="color: white;font-size: 22px;"> {</span></p>
+                    <p style="margin-top: 20px; margin-left: 48px;"><span style="font-size: 18px;">String [
+                            ]</span><span
+                            style="color: yellow; font-size: 19px; margin: 0px 1px 0px 10px;">skills</span><span
+                            style="font-size: 18px; margin-right:8px;"> ( )</span><span
+                            style="color: white;font-size: 22px;">{</span></p>
+                    <p style="margin-top: 10px; margin-left: 70px;"><span
+                            style="color: rgb(98, 84, 255); font-size: 18px; margin-right: 9px; font-family: Verdana, Geneva, Tahoma, sans-serif;">return</span><span
+                            style="font-size: 18px; color: #5e71ff; margin-right: 5px;">new</span><span
+                            style="font-size: 18px;"> String [ ] </span><span style="font-size: 22px;">{</span><span
+                            style="color: rgb(3, 249, 3); font-size: 19px;" class="after-color"> '
+                            HTML ' , ' CSS ' , ' JavaScript ' , ' Bootstrap ' , ' Java ' , ' C ' </span><span
+                            style="font-size: 22px;">}</span></p>
+                    <p style="font-size: 22px; margin-left: 28px; margin-top: 10px;">}</p>
+                    <p style="font-size: 22px; margin-left: 2px; margin-top: 10px;">}</p>
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="skill-icons">
+                <div class="icon">
+                    <i class="fab fa-html5" style="animation-delay: 0s; color: rgb(255, 106, 13)"></i>
+                    <p>HTML</p>
+                </div>
+                <div class="icon">
+                    <i class="fab fa-css3-alt" style="animation-delay: 0.3s; color: rgb(56, 56, 255);"></i>
+                    <p>CSS</p>
+                </div>
+                <div class="icon">
+                    <i class="fab fa-js" style="animation-delay: 0.7s; color: yellow;"></i>
+                    <p>JavaScript</p>
+                </div>
+                <div class="icon">
+                    <p style="margin-right: 13px;">Java</p>
+                    <i class="fab fa-java" style="margin-top: -10px; color: rgb(5, 217, 255);"></i>
+                </div>
+                <div class="icon">
+                    <p style="margin-right: 10px;">Bootstrap</p>
+                    <i class="fab fa-bootstrap"
+                        style="margin-top: -2px;animation-delay: 0.3s; color: rgb(0, 119, 255);"></i>
+                </div>
+                <div class="icon">
+                    <p style="margin-right: 13px;">C</p>
+                    <i class="fab fa-java" style="margin-top: -10px;animation-delay: 0.7s;"></i>
                 </div>
             </div>
         </div>
 
         <div class="contacts section">
             <div class="text">
-                <h2><img src="images/contact (1).png" alt="" width="30px" height="auto" style="margin-right: 15px; vertical-align: middle;">Find
+                <h2><img src="images/contact (1).png" alt="" width="30px" height="auto"
+                        style="margin-right: 15px; vertical-align: middle;">Find
                     me on:</h2>
                 <div class="inner-text" style="margin-left: 44px ;">
-                    <h3 style="margin-bottom: 15px; margin-top: 40px;">CONTACTS</h3>
-                    <p><i class="fa-brands fa-whatsapp" style="vertical-align: middle;"></i><span class="after-color">++8801306249460</span></p>
-                    <p style="margin-top: 10px;"><i class="fa-regular fa-envelope" style="vertical-align: middle;"></i><span class="after-color">shihab2305341402@diu.edu.bd</span></p>
+                    <h3
+                        style="margin-bottom: 15px; margin-top: 40px; font-family:'Courier New', Courier, monospace; letter-spacing: 3px;">
+                        CONTACTS</h3>
+                    <p><i class="fa-brands fa-whatsapp"
+                            style="vertical-align: middle; color: rgb(12, 232, 12);"></i><span class="after-color"
+                            style="font-family: Verdana, Geneva, Tahoma, sans-serif;">++8801306249460</span></p>
+                    <p style="margin-top: 10px;"><i class="fa-regular fa-envelope"
+                            style="vertical-align: middle; color: red;"></i><span class="after-color"
+                            style="font-family: Verdana, Geneva, Tahoma, sans-serif;">shihab2305341402@diu.edu.bd</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -413,13 +564,17 @@
         const cursor = document.querySelector(".cursor");
         const navItems = document.querySelectorAll("nav ul li a");
 
+        const crs_2 = document.querySelector(".crs-2");
+
         navItems.forEach(item => {
             item.addEventListener("mouseover", () => {
                 cursor.classList.add("hovered");
+                crs_2.style.display = "none";
             });
 
             item.addEventListener("mouseout", () => {
                 cursor.classList.remove("hovered");
+                crs_2.style.display = "block";
             });
         });
 
@@ -430,12 +585,35 @@
     </script>
 
     <script>
+        const crs2 = document.querySelector(".crs-2");
+        const navbar = document.querySelector("nav");
+        const sections = document.querySelectorAll(".section");
+
+        document.addEventListener("mousemove", e => {
+                    crs2.style.left = (e.pageX - 10) + "px";
+                    crs2.style.top = (e.pageY - 10) + "px";
+        });
+
+        sections.forEach(section => {
+            section.addEventListener("mouseover", () => {
+                crs2.style.display = "block !important";
+            });
+
+            section.addEventListener("mouseout", () => {
+                crs2.style.display = "none !important";
+            });
+        })
+    </script>
+
+    <script>
         //For about section
         const about = document.querySelector(".about");
         const education = document.querySelector(".education");
         const skills = document.querySelector(".skills");
         const contacts = document.querySelector(".contacts");
         const links = document.querySelectorAll("nav ul li a");
+
+        const nav = document.querySelector("nav");
 
         links.forEach(link => {
             link.addEventListener("click", () => {
@@ -479,14 +657,20 @@
         function toggleSection(section) {
             if (section.style.height === "0px" || section.style.height === "") {
                 section.style.height = "450px";
+                section.style.transition = "0.8s ease";
+                nav.style.borderBottom = "1px solid white";
+                nav.style.transition = "0.5s ease";
             } else {
                 section.style.height = "0px";
+                nav.style.borderBottom = "none";
+                nav.style.transition = "0s ease";
             }
         }
 
         // Function to hide section
         function hideSection(section) {
             section.style.height = "0px";
+            section.style.transition = "0s ease";
         }
     </script>
 
