@@ -170,7 +170,7 @@
             margin: 0 auto;
             overflow: auto;
             overflow: hidden;
-            height: 450px;
+            height: 0px;
             transition: 0.8s ease;
             z-index: 2;
             position: absolute;
@@ -403,7 +403,7 @@
     </div>
 
     <div class="container">
-       <div class="crs-2"></div>
+        <div class="crs-2"></div>
 
         <div class="about section">
             <div class="text">
@@ -411,11 +411,11 @@
                         style="margin-right: 10px; font-size: 26px; color: rgb(234, 255, 0); vertical-align: middle;"></i>ABOUT
                 </h2>
                 <div class="img">
-                    <img src="images/shihabb.jpg" alt="profile picture">
+                    <img src="images/ProfilePicture.jpg" alt="profile picture">
                 </div>
                 <div class="inner-text">
-                    <h3 class="after-color">Hello there!</h3>
-                    <p class="after-color">I am Hanjala Muhammad Shihab.</p>
+                    <h3 class="after-color">Hello there! I am Shihab.</h3>
+                    <p class="after-color">I am a <span id="element" style="font-size: 24px; color: rgba(22, 255, 1, 0.853); font-weight: bold;"></span></p>
                     <p style="margin-top: 10px;" class="after-color">I am someone who finds joy
                         in exploring diverse cultures
                         and cuisines, feeling rejuvenated
@@ -590,8 +590,8 @@
         const sections = document.querySelectorAll(".section");
 
         document.addEventListener("mousemove", e => {
-                    crs2.style.left = (e.pageX - 10) + "px";
-                    crs2.style.top = (e.pageY - 10) + "px";
+            crs2.style.left = (e.pageX - 10) + "px";
+            crs2.style.top = (e.pageY - 10) + "px";
         });
 
         sections.forEach(section => {
@@ -792,6 +792,22 @@
             diffColor.style.opacity = "0";
         }
     </script>
+
+    <!-- Typed JS -->
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web developer.', 'Designer.', 'Programmer.'],
+            typeSpeed: 80,
+            backSpeed: 50,
+            loop: true,
+        });
+    </script>
+</body>
+
+
 </body>
 
 </html>
