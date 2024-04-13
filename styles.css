@@ -5,7 +5,8 @@
 }
 
 body {
-  background-color: rgba(3, 3, 16, 0.964);
+  /* background-color: rgba(3, 3, 16, 0.964); */
+  background-color: black;
   overflow: hidden;
 }
 
