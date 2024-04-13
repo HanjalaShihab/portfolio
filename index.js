@@ -268,11 +268,3 @@ ins.addEventListener("mouseout", () => {
   iconTitle[3].style.display = "none";
 });
 
-
-//Loader
-// Wait for the page to fully load
-window.addEventListener('load', () => {
-    // Add loaded class to the body to hide the loader
-    document.body.classList.add('loaded');
-  });
-  

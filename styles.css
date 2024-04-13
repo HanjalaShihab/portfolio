@@ -482,7 +482,8 @@ canvas {
   display: none;
 }
 
-/* For loader */
+
+/* For loader
 .loader-wrapper {
   position: fixed;
   top: 0;
@@ -506,15 +507,11 @@ canvas {
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Hide the loader when content is loaded */
-.loaded .loader-wrapper {
+/* .loaded .loader-wrapper {
   display: none;
-}
+} */ 
