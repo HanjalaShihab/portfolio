@@ -268,3 +268,25 @@ ins.addEventListener("mouseout", () => {
   iconTitle[3].style.display = "none";
 });
 
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const popup = document.getElementById('popup');
+  const closeButton = document.querySelector('.close');
+
+  // Show the popup when the page is loaded
+  popup.style.display = 'block';
+
+  // Close the popup when the close button is clicked
+  closeButton.addEventListener('click', function() {
+      popup.style.display = 'none';
+  });
+});
+
+function saveName() {
+  const name = document.getElementById('nameInput').value;
+  localStorage.setItem('visitorName', name);
+
+  // Hide the popup
+  document.getElementById('popup').style.display = 'none';
+}
